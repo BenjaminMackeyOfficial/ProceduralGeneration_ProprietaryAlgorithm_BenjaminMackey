@@ -120,12 +120,10 @@ public class NoiseMapMesh : MonoBehaviour
     }
 
 
-    void Start()
+    void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
         meshFilter = GetComponent<MeshFilter>();
-
-        AddMap(new NoiseMap(new Vector2(50, 50)));
     }
 
     void Update()

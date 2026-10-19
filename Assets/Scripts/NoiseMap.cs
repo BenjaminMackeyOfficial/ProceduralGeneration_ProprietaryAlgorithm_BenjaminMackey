@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 public class NoiseMap
@@ -12,6 +14,21 @@ public class NoiseMap
         _pixelY = (int)pixelCount.y;
 
         _map = GenerateRandomNoise(_pixelX, _pixelY);
+    }
+
+    public float[] GetPointsAdjacent(int x, int y) //returns  all points touching the given point index
+    {
+        if (_map == null) return new float[0];
+
+        List<float> toReturn = new List<float>();
+
+        if (x < _pixelX - 1) toReturn.Add(_map[x + 1][ y]);
+        if (x > 0) toReturn.Add(_map[x - 1][y]);
+
+        if (y < _pixelY - 1) toReturn.Add(_map[x][y + 1]);
+        if (y > 0) toReturn.Add(_map[x][y - 1]);
+
+        return toReturn.ToArray();
     }
 
     private float[][] GenerateRandomNoise(int x, int y)
