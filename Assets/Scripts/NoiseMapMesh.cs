@@ -4,6 +4,8 @@ public class NoiseMapMesh : MonoBehaviour
 {
     [Header("Adjustables")]
     public float meshHeighMulti = 1; //determines the height scale of the map
+    public float textureScale = 1;
+    public Material material;
 
     [Header("non adjustables")]
     public NoiseMap map { get; private set; }
@@ -33,7 +35,7 @@ public class NoiseMapMesh : MonoBehaviour
         if (map == null) return;
 
         //Placing vertecies----------------+triangles------
-        meshVertecies = GenerateVertecies(out meshTriangles);
+        meshVertecies = GenerateVertecies(out meshTriangles, out meshUV);
         //-------------------------------------------------
 
         //AddingUvMaps-----------------------------------------
@@ -43,8 +45,10 @@ public class NoiseMapMesh : MonoBehaviour
 
         mesh.vertices = meshVertecies;
         mesh.triangles = meshTriangles;
+        mesh.uv = meshUV;
 
         meshFilter.mesh = mesh;
+        meshRenderer.material = material;
     }
 
     private Vector3[] GenerateVertecies()
@@ -61,11 +65,14 @@ public class NoiseMapMesh : MonoBehaviour
         }
         return generatin;
     }
-    private Vector3[] GenerateVertecies(out int[] triangles)
+    private Vector3[] GenerateVertecies(out int[] triangles, out Vector2[] UVs)
     {
         Vector3[] generatin = new Vector3[map._pixelX * map._pixelY];
+
         triangles = new int[((map._pixelX - 1) * (map._pixelY - 1) * 2) * 3];
-        Debug.Log(triangles.Length);
+
+        UVs = new Vector2[generatin.Length];
+
         int count = -1;
         int triangleCount = 0;
         for (int i = 0; i < map._pixelX; i++)
@@ -74,6 +81,13 @@ public class NoiseMapMesh : MonoBehaviour
             {
                 count++;
                 generatin[count] = new Vector3(i, map._map[i][j] * meshHeighMulti, j);
+
+
+                //UV mapping---------------------------------------
+                UVs[count] = new Vector2((float)i / (float)map._pixelX, (float)j / (float)map._pixelY) * textureScale; //thought this would be harder lol
+                Debug.Log(UVs[count]);
+                //----------------------------------------------
+
 
                 //triangle stuff--------------
                 if (i == 0) continue;//skips over the first layer cause it goes down 
@@ -84,7 +98,7 @@ public class NoiseMapMesh : MonoBehaviour
                 vert2 = count - (map._pixelY - 1); //top right
                 vert3 = count + 1; //bottom right
                 vert4 = count; //bottom left
-                Debug.Log(i + " | " + j + " | TopL = " + vert1 + " TopR = " + vert2 + " BotL = " + vert4 + " BotR = " +vert3);
+                //Debug.Log(i + " | " + j + " | TopL = " + vert1 + " TopR = " + vert2 + " BotL = " + vert4 + " BotR = " +vert3);
                 //top half of triangle
                 triangles[triangleCount] = vert1;
                 triangles[triangleCount + 1] = vert2;

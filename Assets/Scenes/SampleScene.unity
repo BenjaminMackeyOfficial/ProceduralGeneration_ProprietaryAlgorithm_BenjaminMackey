@@ -208,6 +208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoiseMapMesh
   meshHeighMulti: 10
+  textureScale: 10
+  material: {fileID: 2100000, guid: a091513fe368dfd4791bb3f4d8e88ba7, type: 2}
   meshVertecies: []
   meshUV: []
   meshTriangles: 
