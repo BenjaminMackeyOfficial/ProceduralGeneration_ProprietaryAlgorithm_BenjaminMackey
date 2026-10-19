@@ -5,6 +5,7 @@ public class NoiseMapMesh : MonoBehaviour
     [Header("Adjustables")]
     public float meshHeighMulti = 1; //determines the height scale of the map
     public float textureScale = 1;
+    public float meshScale = 1;
     public Material material;
 
     [Header("non adjustables")]
@@ -47,6 +48,8 @@ public class NoiseMapMesh : MonoBehaviour
         mesh.triangles = meshTriangles;
         mesh.uv = meshUV;
 
+        mesh.RecalculateNormals();
+
         meshFilter.mesh = mesh;
         meshRenderer.material = material;
     }
@@ -80,12 +83,11 @@ public class NoiseMapMesh : MonoBehaviour
             for (int j = 0; j < map._pixelY; j++)
             {
                 count++;
-                generatin[count] = new Vector3(i, map._map[i][j] * meshHeighMulti, j);
+                generatin[count] = new Vector3(i, map._map[i][j] * meshHeighMulti, j) * meshScale;
 
 
                 //UV mapping---------------------------------------
                 UVs[count] = new Vector2((float)i / (float)map._pixelX, (float)j / (float)map._pixelY) * textureScale; //thought this would be harder lol
-                Debug.Log(UVs[count]);
                 //----------------------------------------------
 
 
