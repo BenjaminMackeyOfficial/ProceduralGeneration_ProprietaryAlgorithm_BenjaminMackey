@@ -62,7 +62,7 @@ public class NoiseMapMesh : MonoBehaviour
         {
             for (int j = 0; j < map._pixelY; j++)
             {
-                generatin[count] = new Vector3(i, map._map[i][j], j);
+                generatin[count] = new Vector3(i, map._map[i,j], j);
                 count++;
             }
         }
@@ -83,7 +83,7 @@ public class NoiseMapMesh : MonoBehaviour
             for (int j = 0; j < map._pixelY; j++)
             {
                 count++;
-                generatin[count] = new Vector3(i, map._map[i][j] * meshHeighMulti, j) * meshScale;
+                generatin[count] = new Vector3(i, map._map[i,j] * meshHeighMulti, j) * meshScale;
 
 
                 //UV mapping---------------------------------------

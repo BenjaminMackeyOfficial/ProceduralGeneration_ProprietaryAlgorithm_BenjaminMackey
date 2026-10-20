@@ -618,8 +618,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestBuilder
   noiseMesh: {fileID: 137633115}
   noiseMapRefiner: {fileID: 498092493}
-  boostVal: 1
-  meshSize: {x: 10, y: 10}
+  boostVal: 3
+  meshSize: {x: 30, y: 30}
 --- !u!4 &853921076
 Transform:
   m_ObjectHideFlags: 0
