@@ -207,10 +207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573012a763dbbe140af7095148944891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoiseMapMesh
-  meshHeighMulti: 3
   textureScale: 1
-  meshScale: 100
   material: {fileID: 2100000, guid: a091513fe368dfd4791bb3f4d8e88ba7, type: 2}
+  size: {x: 100, y: 10, z: 100}
   meshVertecies: []
   meshUV: []
   meshTriangles: 
@@ -504,7 +503,7 @@ GameObject:
   - component: {fileID: 498092494}
   - component: {fileID: 498092493}
   m_Layer: 0
-  m_Name: NoiseMapRefiner
+  m_Name: NoiseMapRefinerTerrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -522,7 +521,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca967059a3620414a8fe80be6bc9837e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoiseMapRefiner
-  boostVal: 1
+  activeRefiningMethods:
+  - {fileID: 11400000, guid: 303fffd862cfc7745809a7e931957c33, type: 2}
+  - {fileID: 11400000, guid: 211dac77bb9d53845b310c5e8649a746, type: 2}
+  - {fileID: 11400000, guid: fb4c2aec5c24d8242b96cb8e7fff9b22, type: 2}
+  - {fileID: 11400000, guid: 303fffd862cfc7745809a7e931957c33, type: 2}
+  - {fileID: 11400000, guid: f342abfe12eeecb43a9028c89c0964f8, type: 2}
 --- !u!4 &498092494
 Transform:
   m_ObjectHideFlags: 0
@@ -619,7 +623,7 @@ MonoBehaviour:
   noiseMesh: {fileID: 137633115}
   noiseMapRefiner: {fileID: 498092493}
   boostVal: 3
-  meshSize: {x: 30, y: 30}
+  meshSize: {x: 20, y: 20}
 --- !u!4 &853921076
 Transform:
   m_ObjectHideFlags: 0
@@ -635,6 +639,96 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1076530001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1076530003}
+  - component: {fileID: 1076530002}
+  m_Layer: 0
+  m_Name: TrackPathLayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1076530002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076530001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 063a4f0b2aa48d14d81ec0f8eee37d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrackPathLayer
+  mesh: {fileID: 0}
+--- !u!4 &1076530003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076530001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.33738, y: -0, z: 21.21728}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1867051147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1867051149}
+  - component: {fileID: 1867051148}
+  m_Layer: 0
+  m_Name: NoiseMapRefinerTrack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1867051148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867051147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca967059a3620414a8fe80be6bc9837e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NoiseMapRefiner
+  activeRefiningMethods: []
+--- !u!4 &1867051149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867051147}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 47.20753, y: -0, z: 43.52589}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -644,4 +738,6 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 137633116}
   - {fileID: 498092494}
+  - {fileID: 1867051149}
   - {fileID: 853921076}
+  - {fileID: 1076530003}

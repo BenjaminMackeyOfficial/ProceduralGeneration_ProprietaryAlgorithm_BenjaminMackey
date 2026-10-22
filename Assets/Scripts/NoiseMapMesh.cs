@@ -3,10 +3,9 @@ using UnityEngine;
 public class NoiseMapMesh : MonoBehaviour
 {
     [Header("Adjustables")]
-    public float meshHeighMulti = 1; //determines the height scale of the map
     public float textureScale = 1;
-    public float meshScale = 1;
     public Material material;
+    public Vector3 size; //world size
 
     [Header("non adjustables")]
     public NoiseMap map { get; private set; }
@@ -78,12 +77,19 @@ public class NoiseMapMesh : MonoBehaviour
 
         int count = -1;
         int triangleCount = 0;
+
+        Vector2 minMaxes = map._heighMinAndMaxes;
+
+        float xScale = size.x / (float)map._pixelX ; //these scales are like what it scales the vectors positions by to stay within the size
+        float yScale = size.y / (minMaxes.y - minMaxes.x);
+        float zScale = size.z/ (float)map._pixelY
+        ; 
         for (int i = 0; i < map._pixelX; i++)
         {
             for (int j = 0; j < map._pixelY; j++)
             {
                 count++;
-                generatin[count] = new Vector3(i, map._map[i,j] * meshHeighMulti, j) * meshScale;
+                generatin[count] = new Vector3((float)i * xScale, map._map[i,j] * yScale, (float)j * zScale);
 
 
                 //UV mapping---------------------------------------
@@ -122,12 +128,10 @@ public class NoiseMapMesh : MonoBehaviour
 
     void Awake()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
-        meshFilter = GetComponent<MeshFilter>();
+        if(!TryGetComponent<MeshRenderer>(out meshRenderer)) meshRenderer = gameObject.AddComponent<MeshRenderer>();
+        if(!TryGetComponent<MeshFilter>(out meshFilter)) meshFilter = gameObject.AddComponent<MeshFilter>();
+
+        if (size == Vector3.zero) size = Vector3.one;
     }
 
-    void Update()
-    {
-        
-    }
 }
