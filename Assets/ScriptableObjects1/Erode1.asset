@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Erode1
+  m_EditorClassIdentifier: Assembly-CSharp::Erode
+  amount: 1
+  erosionSeed: 0
+  allowIslands: 0
+  erosionPasses: 100
+  erosionPower: 3.47
+  erodePointsAbove: 0.1
+  enableHotspots: 1
+  disolveHotspots:
+  - {x: 0, y: 0}
+  numberOfRandomHotspots: 0
+  enableConsoleOutputs: 0

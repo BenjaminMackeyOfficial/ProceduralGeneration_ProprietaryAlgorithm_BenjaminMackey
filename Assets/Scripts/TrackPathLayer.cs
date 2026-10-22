@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TrackPathLayer : MonoBehaviour
 {
@@ -6,14 +8,26 @@ public class TrackPathLayer : MonoBehaviour
 
     public NoiseMap trackMap;
     public NoiseMapMesh mesh;
+    public NoiseMapRefiner refiner;
+    public Material material;
+    public InputActionReference space;
+
+    private List<GameObject> cubes;
 
     public void Start()
     {
-        //trackMap = new NoiseMap(terrainMap._pixelX, terrainMap._pixelY, new CircleNoise(0.7f, false));
-        trackMap = new NoiseMap(100, 100, new CircleNoise(0.7f, false));
         mesh = new GameObject().AddComponent<NoiseMapMesh>();
-
+        mesh.material = material;
         mesh.size = new Vector3(100, 5, 100);
+
+        space.action.performed += _ => Regenerate();
+    }
+    private void Regenerate()
+    {
+        trackMap = new NoiseMap(100, 100, new CircleNoise(0.7f, false));
+        refiner.RefineMap(trackMap);
+
         mesh.AddMap(trackMap);
     }
+   
 }

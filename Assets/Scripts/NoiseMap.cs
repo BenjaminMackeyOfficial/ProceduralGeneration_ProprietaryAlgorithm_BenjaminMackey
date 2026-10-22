@@ -86,6 +86,20 @@ public class NoiseMap
 
         return toReturn.ToArray();
     }
+    public float[] GetPointsAdjacentAbove(int x, int y, float minVal) //returns  all points touching the given point index
+    {
+        if (_map == null) return new float[0];
+
+        List<float> toReturn = new List<float>();
+
+        if (x < _pixelX - 1 && _map[x + 1, y] >= minVal) toReturn.Add(_map[x + 1, y]);
+        if (x > 0 && _map[x - 1, y] >= minVal) toReturn.Add(_map[x - 1, y]);
+
+        if (y < _pixelY - 1 && _map[x, y + 1] >= minVal) toReturn.Add(_map[x, y + 1]);
+        if (y > 0 && _map[x, y - 1] >= minVal) toReturn.Add(_map[x, y - 1]);
+
+        return toReturn.ToArray();
+    }
     public static float[] GetPointsAdjacent(float[,] map, int x, int y) //returns  all points touching the given point index
     {
         if (map == null) return new float[0];
@@ -118,7 +132,7 @@ public class StaticNoise : NoiseGeneration
 
             for (int j = 0; j < y; j++)
             {
-                returnMap[i, j] = UnityEngine.Random.value;
+                returnMap[i, j] = CustomRand.Random01(23432);
             }
         }
         return returnMap;
@@ -149,7 +163,6 @@ public class CircleNoise : NoiseGeneration
             for (int j = 0; j < y; j++)
             {
                 float dist = (new Vector2(i, j) - centre).sqrMagnitude;
-                Debug.Log(dist + " | " + _squaredRad);
                 if (dist > _squaredRad) returnMap[i, j] = 0;
                 else returnMap[i, j] = 1;
             }
