@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 1cfde0ac8e6f970469879ed40095e08a, type: 3}
   m_Name: Erode1
   m_EditorClassIdentifier: Assembly-CSharp::Erode
   amount: 1
-  erosionSeed: 0
+  erosionSeed: 324645
   allowIslands: 0
-  erosionPasses: 100
-  erosionPower: 3.47
-  erodePointsAbove: 0.1
+  erosionPasses: 120
+  erosionPower: 6.19
+  erodePointsAbove: 0.5
   enableHotspots: 1
   disolveHotspots:
   - {x: 0, y: 0}

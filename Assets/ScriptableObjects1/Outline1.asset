@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: b69df1a22c408754389e21c689f72038, type: 3}
   m_Name: Outline1
   m_EditorClassIdentifier: Assembly-CSharp::Outline
   amount: 1
-  thickness: 1
+  thickness: 5
   numsAbove: 0.5

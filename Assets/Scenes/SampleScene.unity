@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoiseMapMesh
   textureScale: 1
   material: {fileID: 2100000, guid: a091513fe368dfd4791bb3f4d8e88ba7, type: 2}
-  size: {x: 100, y: 10, z: 100}
+  size: {x: 100, y: 20, z: 100}
   meshVertecies: []
   meshUV: []
   meshTriangles: 
@@ -522,11 +522,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoiseMapRefiner
   activeRefiningMethods:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f342abfe12eeecb43a9028c89c0964f8, type: 2}
+  - {fileID: 11400000, guid: 0600662981a30d24d9926ab8932b7e0b, type: 2}
+  - {fileID: 11400000, guid: 1d36c90f3a6f7c34091540d00cda6950, type: 2}
 --- !u!4 &498092494
 Transform:
   m_ObjectHideFlags: 0
@@ -623,7 +621,9 @@ MonoBehaviour:
   noiseMesh: {fileID: 137633115}
   noiseMapRefiner: {fileID: 498092493}
   boostVal: 3
-  meshSize: {x: 20, y: 20}
+  meshSize: {x: 10, y: 10}
+  space: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  trackPathLayer: {fileID: 1076530002}
 --- !u!4 &853921076
 Transform:
   m_ObjectHideFlags: 0
@@ -634,6 +634,52 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 32.94781, y: -0, z: 50.28831}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &948849361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 948849363}
+  - component: {fileID: 948849362}
+  m_Layer: 0
+  m_Name: NoiseMapRefinerOverlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &948849362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948849361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca967059a3620414a8fe80be6bc9837e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NoiseMapRefiner
+  activeRefiningMethods:
+  - {fileID: 0}
+--- !u!4 &948849363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948849361}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 47.20753, y: -0, z: 43.52589}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -668,9 +714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063a4f0b2aa48d14d81ec0f8eee37d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackPathLayer
-  mesh: {fileID: 0}
   refiner: {fileID: 1867051148}
-  material: {fileID: 2100000, guid: a091513fe368dfd4791bb3f4d8e88ba7, type: 2}
   space: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!4 &1076530003
 Transform:
@@ -796,6 +840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoiseMapRefiner
   activeRefiningMethods:
+  - {fileID: 11400000, guid: e78c0fb518efd174ea4dfc82c2509e9d, type: 2}
   - {fileID: 11400000, guid: 8b88e509d7e428844b19fe5a69254f5f, type: 2}
   - {fileID: 11400000, guid: 577efd866604c914cac9c4502980628a, type: 2}
 --- !u!4 &1867051149
@@ -823,6 +868,7 @@ SceneRoots:
   - {fileID: 137633116}
   - {fileID: 498092494}
   - {fileID: 1867051149}
+  - {fileID: 948849363}
   - {fileID: 853921076}
   - {fileID: 1076530003}
   - {fileID: 1192560520}
