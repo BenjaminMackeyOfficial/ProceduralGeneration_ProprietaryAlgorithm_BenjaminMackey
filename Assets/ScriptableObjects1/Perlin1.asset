@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde3ee906be51e74eb9ceabbdb40d7c9, type: 3}
   m_Name: Perlin1
   m_EditorClassIdentifier: Assembly-CSharp::Perlin
-  amount: 3
+  amount: 20

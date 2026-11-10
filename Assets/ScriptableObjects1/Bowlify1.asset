@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f52bab0c6b12f4083ca7b72c528862, type: 3}
   m_Name: Bowlify1
   m_EditorClassIdentifier: Assembly-CSharp::Bowlify
-  amount: 20
+  amount: 50

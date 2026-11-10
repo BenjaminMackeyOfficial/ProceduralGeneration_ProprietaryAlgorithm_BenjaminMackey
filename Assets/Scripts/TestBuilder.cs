@@ -27,13 +27,13 @@ public class TestBuilder : MonoBehaviour
 
         trackMap = trackPathLayer.Regenerate((int)meshSize.x * 25, (int)meshSize.y * 25);
 
-        map.IncreaseMapResolution(5);
+        //map.IncreaseMapResolution(5);
 
         for (int i = 0; i < map._pixelX; i++)
         {
             for (int j = 0; j < map._pixelY; j++)
             {
-                if (trackMap._map[i, j] > 0.5f) map._map[i, j] += trackMap._map[i, j] ;
+                //if (trackMap._map[i, j] > 0.5f) map._map[i, j] += trackMap._map[i, j] ;
             }
         }
 
